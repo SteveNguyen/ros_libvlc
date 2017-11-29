@@ -1,5 +1,7 @@
 # ROS libvlc wrapper
 
+[![CircleCI](https://circleci.com/gh/dreuter/ros_libvlc.svg?style=svg)](https://circleci.com/gh/dreuter/ros_libvlc)
+
 Have you ever thought "I can easily show this camera stream in vlc, why is there no ROS driver for it?". Then this is exactly the right place for you.
 
 This package provides a simple way to convert any video input(-stream) that is supported by `vlc` into ros `sensor_msgs/Image` topics. It might not be the best integration of your camera one can imagine, but it mostly gets the job done `¯\_(ツ)_/¯`
@@ -43,3 +45,7 @@ rosrun ros_libvlc ros_libvlc _src:="<your video source>"
 #   vlc://pause:<seconds>          Pause the playlist for a certain time
 #   vlc://quit                     Special item to quit VLC
 ```
+
+## Related Projects
+
+https://github.com/OSUrobotics/vlc -- Control a running vlc instance with ROS using the included web interface of vlc.
