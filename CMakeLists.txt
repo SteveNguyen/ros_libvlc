@@ -15,7 +15,7 @@ set(CMAKE_MODULE_PATH
 )
 
 find_package(libvlc REQUIRED)
-set(LIBVLC_LIBRARIES ${LIBVLCCORE_LIBRARY} ${LIBVLC_LIBRARY})
+set(LIBVLC_LIBRARIES ${LIBVLC_LIBRARY})
 
 # FIXME: use target_compile_features instead
 set(CMAKE_CXX_FLAGS "--std=gnu++11 ${CMAKE_CXX_FLAGS}")
