@@ -1,5 +1,15 @@
+version: 2
+workflows:
+  version: 2
+  test_all_distros:
+    jobs:
+      - indigo
+      - jade
+      - kinetic
+      - lunar
+
 jobs:
-  build:
+  indigo:
     docker:
       - image: ros:indigo-ros-core
     working_directory: ~/ros-ws/src/ros_libvlc
@@ -14,3 +24,51 @@ jobs:
       - run:
           name: catkin_make
           command: 'source /opt/ros/indigo/setup.bash && cd ../.. && catkin_make'
+
+  jade:
+    docker:
+      - image: ros:jade-ros-core
+    working_directory: ~/ros-ws/src/ros_libvlc
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: 'apt-get update && rosdep install -y --from-paths .'
+      - run:
+          name: catkin_init_workspace
+          command: 'source /opt/ros/jade/setup.bash && cd .. && catkin_init_workspace'
+      - run:
+          name: catkin_make
+          command: 'source /opt/ros/jade/setup.bash && cd ../.. && catkin_make'
+
+  kinetic:
+    docker:
+      - image: ros:kinetic-ros-core
+    working_directory: ~/ros-ws/src/ros_libvlc
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: 'apt-get update && rosdep install -y --from-paths .'
+      - run:
+          name: catkin_init_workspace
+          command: 'source /opt/ros/kinetic/setup.bash && cd .. && catkin_init_workspace'
+      - run:
+          name: catkin_make
+          command: 'source /opt/ros/kinetic/setup.bash && cd ../.. && catkin_make'
+
+  lunar:
+    docker:
+      - image: ros:lunar-ros-core
+    working_directory: ~/ros-ws/src/ros_libvlc
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: 'apt-get update && rosdep install -y --from-paths .'
+      - run:
+          name: catkin_init_workspace
+          command: 'source /opt/ros/lunar/setup.bash && cd .. && catkin_init_workspace'
+      - run:
+          name: catkin_make
+          command: 'source /opt/ros/lunar/setup.bash && cd ../.. && catkin_make'
