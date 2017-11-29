@@ -9,7 +9,7 @@ This package provides a simple way to convert any video input(-stream) that is s
 ```bash
 cd <your-catkin-workspace>/src
 git clone https://github.com/dreuter/ros_libvlc
-sudo apt-get install libvlc-dev libvlccore-dev
+rosdep install --from-paths .
 cd ..
 catkin_make # or catkin build or whatever you fancy
 ```
