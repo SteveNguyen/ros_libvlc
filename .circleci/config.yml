@@ -1,0 +1,16 @@
+jobs:
+  build:
+    docker:
+      - image: ros:indigo-ros-core
+    working_directory: ~/ros-ws/src/ros_libvlc
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: 'apt-get update && rosdep install -y --from-paths .'
+      - run:
+          name: catkin_init_workspace
+          command: 'source /opt/ros/indigo/setup.bash && cd .. && catkin_init_workspace'
+      - run:
+          name: catkin_make
+          command: 'source /opt/ros/indigo/setup.bash && cd ../.. && catkin_make'
