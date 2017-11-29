@@ -8,6 +8,6 @@
     <node name="webcam" pkg="ros_libvlc" type="ros_libvlc">
         <param name="src" value="v4l2:///dev/video0" />
     </node>
-    <node name="image_viewer" pkg="rqt_image_view" type="rqt_image_view">
+    <node name="image_viewer" pkg="rqt_image_view" type="rqt_image_view" required="true">
     </node>
 </launch>
